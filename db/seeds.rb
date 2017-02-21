@@ -10,6 +10,7 @@ User.destroy_all
 Event.destroy_all
   5.times do
     Event.new(
+      name: Faker::Superhero.descriptor,
       address: Faker::Address.street_address,
       category: ["Apéro", "Play game", "Concert", "Match"].sample,
       price: rand(1..20),

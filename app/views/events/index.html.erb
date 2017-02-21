@@ -1,0 +1,32 @@
+ <div class="header-page">
+    <h1>Result for your search</h1>
+  </div>
+
+  <div class="container">
+    <% @events.each do |event| %>
+    <div class="card">
+      <div class="card-title">
+        <h3><%= event.name %></h3>
+      </div>
+
+        <!--Display each event in a card -->
+        <div class="card-content">
+          <div class="card-category">
+            <p> Type: <%= event.category %></p>
+          </div>
+          <div class="card-date">
+            <p>Date: <%= event.date %></p>
+          </div>
+          <div class="card-price">
+            <p>Price: <%= event.price %> €</p>
+          </div>
+          <div class="card-place">
+            <p>Entries available: <%= event.place %></p>
+          </div>
+          <div class="card-description">
+            <p>About: <%= event.description %></p>
+          </div>
+        </div>
+    <% end %>
+    </div>
+  </div>

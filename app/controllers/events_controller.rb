@@ -1,21 +1,26 @@
 class EventsController < ApplicationController
 skip_before_action :authenticate_user!, only: [ :new]
+before_action :set_event, only: [ :edit, :update, :destroy]
+
+  def index
+    @events = Event.all
+  end
+
   def new
     @event = Event.new
   end
 
-  def edit
-  end
-
   def create
     @event = Event.new(event_params)
-
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
       flash[:alert] = "invalid event"
       render :new
     end
+  end
+
+  def edit
   end
 
   def update

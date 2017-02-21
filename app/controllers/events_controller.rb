@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-skip_before_action :authenticate_user!, only: [ :home]
+skip_before_action :authenticate_user!, only: [ :new]
   def new
     @event = Event.new
   end
@@ -37,6 +37,6 @@ skip_before_action :authenticate_user!, only: [ :home]
     end
 
     def event_params
-      params.require(:event).permit(:address, :picture, :price, :date, :place, :description,)
+      params.require(:event).permit(:name, :address, :picture, :price, :date, :place, :description,)
     end
 end

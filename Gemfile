@@ -16,6 +16,11 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem 'faker'
+gem "cloudinary", "1.1.0"
+gem "attachinary", github: "assembler/attachinary"
+gem "jquery-fileupload-rails"
+gem 'coffee-rails', '~> 4.1.0'
 
 group :development, :test do
   gem 'binding_of_caller'

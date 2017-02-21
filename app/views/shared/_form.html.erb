@@ -2,16 +2,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  <%= f.input :name %>
-  <%= f.input :address %>
-   <%= f.input :picture,,as: :attachinary %>
-  <%= f.input :price %>
-   <%= f.input :date %>
-  <%= f.input :place %>
-  <%= f.input :description %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :picture, as: :attachinary %>
+    <%= f.input :price %>
+    <%= f.input :date %>
+    <%= f.input :place %>
+    <%= f.input :description %>
   </div>
+<% end %>
 
-<% end %>
-<% content_for(:after_js) do %>
-  <%= cloudinary_js_config %>
-<% end %>

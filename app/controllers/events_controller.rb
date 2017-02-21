@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-skip_before_action :authenticate_user!, only: [ :new]
-before_action :set_event, only: [ :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index, :new]
+  before_action :set_event, only: [ :edit, :update, :destroy]
 
   def index
     @events = Event.all

@@ -2,3 +2,70 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.banner {
+  text-align: center;
+  height: 100vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1{
+  color: #f4693f;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+.padded {
+  padding: 100px 0;
+}
+
+.footer {
+  background: #fff;
+  display: flex;
+  padding: 30px 20px;
+  color: black;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer img {
+  width: 90px;
+}
+
+.fa {
+  font-size: 30px;
+  padding: 0 10;
+  margin-left: -5px;
+  list-style: none
+}
+
+.search-input-container .dls-search-input {
+  background-color:transparent;
+  font-size:18px;
+  font-weight:300;
+  height:71px;
+  padding:23px 0
+}

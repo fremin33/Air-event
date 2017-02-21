@@ -5,6 +5,9 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     if params[:search]
+      if params[:search][:category_id].blank?
+        return @events
+      end
       if params[:search][:category_id]
         @events = @events.where(category_id: params[:search][:category_id])
       end

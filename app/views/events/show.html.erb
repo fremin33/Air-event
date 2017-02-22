@@ -32,7 +32,7 @@
             <p>About: <%= @event.description %></p>
           </div>
           <div class="card-address">
-            <p>Address: <%= @event.localisation.address%> <%= @event.localisation.zip_code%>, <%= @event.localisation.city%> </p>
+            <p>Address: <%= @event.full_street_address %></p>
           </div>
         </div>
       </div>

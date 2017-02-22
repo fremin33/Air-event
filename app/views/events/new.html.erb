@@ -9,13 +9,11 @@
       <%= f.input :category_id, collection: Category.all %>
       <%= f.input :description %>
       <%= f.input :picture, as: :attachinary %>
-      <%= simple_form_for(@localisation) do |f| %>
-        <%= f.input :address %>
-        <%= f.input :zip_code %>
-        <%= f.input :city %>
-        <%= f.input :country, priority: [ 'FR' ] %>
-        <%= f.submit  %>
-      <% end %>
+      <%= f.input :address %>
+      <%= f.input :zip_code %>
+      <%= f.input :city %>
+      <%= f.input :country, priority: [ 'FR' ] %>
+      <%= f.submit  %>
     </div>
 <% end %>
 </div>

@@ -4,6 +4,15 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+
+    if params[:search]
+      if not params[:search][:localisation].blank?
+        @events = @events.near(params[:search][:localisation], 250)
+      end
+      if not params[:search][:category_id].blank?
+        @events = @events.where(category_id: params[:search][:category_id])
+      end
+    end
   end
 
   def show
@@ -11,17 +20,12 @@ class EventsController < ApplicationController
   end
   def new
     @event = Event.new
-    @localisation = Localisation.new
   end
 
   def create
     @categories = Category.all
     @event = Event.new(event_params)
     if @event.save
-      @localisation = Localisation.new(localisation_params)
-      @localisation.save
-      @event.localisation = @localisation
-      @event.save
       redirect_to @event
     else
       render :new
@@ -49,11 +53,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  def localisation_params
-    params.require(:localisation).permit(:address, :zip_code, :city, :country)
-  end
-
   def event_params
-    params.require(:event).permit(:name, :price, :date, :place, :description, :picture, :category_id)
+    params.require(:event).permit(:name, :price, :date, :place, :description, :picture, :category_id, :address, :zip_code, :city, :country)
   end
 end

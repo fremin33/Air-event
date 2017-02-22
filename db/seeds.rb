@@ -13,12 +13,13 @@ User.destroy_all
 end
 
 10.times do
-Category.new(
-  name: Faker::Pokemon.name).save!
+  Category.new(
+    name: Faker::Pokemon.name
+  ).save!
 end
 
 5.times do
-  Event.new(
+  e = Event.new(
     name: Faker::Superhero.descriptor,
     price: rand(1..20),
     place: rand(1..20),
@@ -26,8 +27,10 @@ end
     description: Faker::Lorem.paragraph,
     user_id: User.all.sample.id,
     category: Category.all.sample,
-    localisation: Location.all.sample
-  ).save!
+    zip_code: "33#{(0..9).to_a.sample}00"
+  )
+  e.geocode
+  e.save
 end
 
 10.times do

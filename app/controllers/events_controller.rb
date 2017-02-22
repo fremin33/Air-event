@@ -4,19 +4,10 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    if params[:search]
-      if params[:search][:category_id].blank?
-        return @events
-      end
-      if params[:search][:category_id]
-        @events = @events.where(category_id: params[:search][:category_id])
-      end
-      # TODO: params[:search][:address] => Geocoder
-    end
   end
 
   def show
-     @event = Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
   def new
     @event = Event.new
@@ -24,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @event = Event.new(event_params)
     if @event.save
       @localisation = Localisation.new(localisation_params)
@@ -62,6 +54,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :price, :date, :place, :description, :picture)
+    params.require(:event).permit(:name, :price, :date, :place, :description, :picture, :category_id)
   end
 end

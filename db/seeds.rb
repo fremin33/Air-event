@@ -26,7 +26,7 @@ end
     description: Faker::Lorem.paragraph,
     user_id: User.all.sample.id,
     category: Category.all.sample,
-    location: Location.all.sample
+    localisation: Location.all.sample
   ).save!
 end
 

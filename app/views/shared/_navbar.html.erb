@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Button (call-to-action) -->
-      <%= link_to t(".top_call_to_action", default: "Create an Event"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%= link_to t(".top_call_to_action", default: "Create an Event"), new_event_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>

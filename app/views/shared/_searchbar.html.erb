@@ -1,5 +1,9 @@
 <%= simple_form_for :search, url: events_path, method: :get, html: { class: "form-inline"} do |f| %>
-  <%= f.input :localisation, label: false, placeholder: "Type a city name" %>
+  <%= f.input :localisation, label: false, input_html: {id: "localisation"} %>
   <%= f.input :category_id, collection: Category.all, label: false, prompt: "All categories" %>
   <%= f.submit 'search' %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
 <% end %>

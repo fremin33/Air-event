@@ -18,7 +18,7 @@ end
   ).save!
 end
 
-5.times do
+10.times do
   e = Event.new(
     name: Faker::Superhero.descriptor,
     price: rand(1..20),
@@ -27,15 +27,10 @@ end
     description: Faker::Lorem.paragraph,
     user_id: User.all.sample.id,
     category: Category.all.sample,
-    zip_code: "33#{(0..9).to_a.sample}00"
+    zip_code: Faker::Address.zip_code,
+    country: "France"
   )
+  e.picture_url = "http://lorempixel.com/280/310/"
   e.geocode
   e.save
-end
-
-10.times do
-  Booking.new(
-    user_id: User.all.sample.id,
-    event_id: Event.all.sample.id
-    ).save!
 end

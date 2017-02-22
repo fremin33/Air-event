@@ -1,19 +1,17 @@
-
 <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= asset_path 'front.jpeg' %>');">
-      <div class="banner-content">
-        <h1>Welcome to Air Event</h1>
-        <p> Book events to live unique experiences all around the word</p>
-        <%= render 'shared/searchbar' %>
-      </div>
+  <div class="banner-content">
+    <h1>Welcome to Air Event</h1>
+    <p> Book events to live unique experiences all around the word</p>
+    <%= render 'shared/searchbar' %>
+  </div>
+</div>
 
-    </div>
+<div class="text-center padded" id="newsletter">
+  <h2>Air Event Newsletter</h2>
+  <p>Join The Club</p>
+  <form class="form-inline">
+    <input type="email" placeholder="partyallthetime@airevent.com" class="form-control">
+    <input type="submit" value="Subscribe" class="btn btn-primary btn-bordered btn-bordered-primary">
+  </form>
+</div>
 
-   <div class="text-center padded" id="newsletter">
-      <h2>Air Event Newsletter</h2>
-      <p>Join The Club</p>
-      <form class="form-inline">
-        <input type="email" placeholder="partyallthetime@airevent.com" class="form-control">
-        <input type="submit" value="Subscribe" class="btn btn-primary btn-bordered btn-bordered-primary">
-      </form>
-    </div>
-    <%= render 'shared/footer' %>

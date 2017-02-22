@@ -24,6 +24,9 @@
           <div class="bokking-description">
             <p>About: <%= @event.description %></p>
           </div>
+          <div class="booking-tickets">
+            <p>Tickets available: <%= @event.place %> tickets</p>
+          </div>
           <div class="booking-price">
             <p>Price/unit: <%= @event.price %>,00 €</p>
           </div>
@@ -42,13 +45,17 @@
         </div>
       </div>
       <div class="booking-img">
+        Picture/banner
       </div>
     </div>
     <div class="booking-info">
-    <p>More information about the event</p>
+      <p>More information about the event</p>
     </div>
     <div class="google-map">
-    <p>Here google MAP</p>
+      <p>Here google MAP</p>
+    </div>
+    <div class="booking-picture">
+      <p>More pictures about the event</p>
     </div>
   </div>
   <div class="booking-basket">

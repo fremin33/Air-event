@@ -1,7 +1,24 @@
-
-<h1>Edit Event</h1>
-
-<%= render 'form', event: @event %>
-
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<div class="container">
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :name, label: "Entrez le nom de votre event" %>
+      <%= f.input :price %>
+      <%= f.input :date %>
+      <%= f.input :place %>
+      <%= f.input :category_id, collection: Category.all %>
+      <%= f.input :description %>
+      <%= f.input :picture, as: :attachinary %>
+      <%= simple_form_for(@localisation) do |f| %>
+        <%= f.input :address %>
+        <%= f.input :zip_code %>
+        <%= f.input :city %>
+        <%= f.input :country, priority: [ 'FR' ] %>
+        <%= f.submit  %>
+      <% end %>
+    </div>
+<% end %>
+</div>
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
+<% end %>

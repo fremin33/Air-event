@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 gem 'rails', '5.0.1'
 gem 'puma'
@@ -8,7 +11,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
-
+gem 'geocoder'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
@@ -20,7 +23,10 @@ gem 'faker'
 gem "cloudinary", "1.1.0"
 gem "attachinary", github: "assembler/attachinary"
 gem "jquery-fileupload-rails"
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
+gem 'gmaps4rails'
+gem 'country_select'
+
 
 group :development, :test do
   gem 'binding_of_caller'

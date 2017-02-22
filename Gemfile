@@ -26,6 +26,7 @@ gem "jquery-fileupload-rails"
 gem 'coffee-rails'
 gem 'gmaps4rails'
 gem 'country_select'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
@@ -37,7 +38,7 @@ group :development, :test do
   gem 'spring'
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'omniauth-facebook'
+
 end
 
 

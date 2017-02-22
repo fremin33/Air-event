@@ -20,13 +20,13 @@ end
 5.times do
   Event.new(
     name: Faker::Superhero.descriptor,
-    address: Faker::Address.street_address,
     price: rand(1..20),
     place: rand(1..20),
     date: Faker::Date.between(2.days.ago, Date.today),
     description: Faker::Lorem.paragraph,
     user_id: User.all.sample.id,
-    category: Category.all.sample
+    category: Category.all.sample,
+    location: Location.all.sample
   ).save!
 end
 

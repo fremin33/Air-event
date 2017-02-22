@@ -5,13 +5,12 @@
 
   <div class="container">
     <!--Display each event in a card -->
-    <% @events.each do |event| %>
     <div class="card">
 
       <!-- Event header -->
       <div class="card-header">
         <div class="card-title">
-          <h3><%= event.name %> - Category: <%= event.category %></h3>
+          <h3><%= @event.name %> - Category: <%= @event.category %></h3>
         </div>
       </div>
 
@@ -21,25 +20,21 @@
         </div>
         <div class="card-spec">
           <div class="card-date">
-            <p>Date: <%= event.date %></p>
+            <p>Date: <%= @event.date %></p>
           </div>
           <div class="card-price">
-            <p>Price: <%= event.price %> €</p>
+            <p>Price: <%= @event.price %> €</p>
           </div>
           <div class="card-place">
-            <p>Entries available: <%= event.place %></p>
+            <p>Entries available: <%= @event.place %></p>
           </div>
           <div class="card-description">
-            <p>About: <%= event.description %></p>
+            <p>About: <%= @event.description %></p>
           </div>
           <div class="card-address">
-            <p>Address: <%= event.localisation.address%> <%= event.localisation.zip_code%>, <%= event.localisation.city%> </p>
+            <p>Address: <%= @event.localisation.address%> <%= @event.localisation.zip_code%>, <%= @event.localisation.city%> </p>
           </div>
-        </div>
-        <div class="card-button">
-          <%= link_to 'Book', new_event_booking_path(event.id), class: "btn btn-primary btn-center" %>
         </div>
       </div>
     </div>
-    <% end %>
   </div>

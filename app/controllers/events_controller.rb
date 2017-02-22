@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :new]
-  before_action :set_event, only: [ :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -15,16 +15,23 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+     @event = Event.find(params[:id])
+  end
   def new
     @event = Event.new
+    @localisation = Localisation.new
   end
 
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      @localisation = Localisation.new(localisation_params)
+      @localisation.save
+      @event.localisation = @localisation
+      @event.save
+      redirect_to @event
     else
-      flash[:alert] = "invalid event"
       render :new
     end
   end
@@ -50,7 +57,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def localisation_params
+    params.require(:localisation).permit(:address, :zip_code, :city, :country)
+  end
+
   def event_params
-    params.require(:event).permit(:name, :address, :picture, :price, :date, :place, :description,)
+    params.require(:event).permit(:name, :price, :date, :place, :description, :picture)
   end
 end

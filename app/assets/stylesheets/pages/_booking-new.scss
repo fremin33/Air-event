@@ -1,6 +1,8 @@
 .booking-box {
   border: 1px solid black;
-  margin: 50px 200px;
+  margin: 50px;
+  margin-left: 200px;
+  margin-right: 35px;
 }
 
 .booking-box-items {
@@ -49,4 +51,35 @@
   margin: 10px;
 }
 
+.booking-inputs {
+  margin: 15px;
+}
 
+.google-map {
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.form-for-booking {
+  position: relative;
+  width: 50%;
+}
+
+.booking-basket {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
+  margin: 50px;
+  margin-right: 100px;
+  margin-left: 0px;
+}
+
+.big-box {
+  display:flex;
+}
+
+.booking-picture {
+  border: 1px solid black;
+  margin: 10px;
+}

@@ -1,23 +1,71 @@
 <div class="header-page">
-   <h1>Book for <%= @event.name %> <%= @event.category %> </h1>
+   <h1>Book for <%= @event.name %></h1>
 </div>
 
+<div class="big-box">
   <div class= "booking-box">
     <div class="booking-box-items">
       <div class="booking-user-spec">
         <div class="booking-avatar">
-          <p>Image user</p>
+          <p>Image User creator</p>
         </div>
         <div class="bookings-reviews">
-          <p>Reviews</p>
+          <p>Reviews for User creator</p>
         </div>
       </div>
       <div class="booking-form">
+        <div class="booking-infos">
+          <div class="booking-category">
+            <p>Type: <%= @event.category %></p>
+          </div>
+          <div class="booking-date">
+            <p> Date: <%= @event.date %></p>
+          </div>
+          <div class="bokking-description">
+            <p>About: <%= @event.description %></p>
+          </div>
+          <div class="booking-tickets">
+            <p>Tickets available: <%= @event.place %> tickets</p>
+          </div>
+          <div class="booking-price">
+            <p>Price/unit: <%= @event.price %>,00 €</p>
+          </div>
+        </div>
+        <div class="booking-inputs">
+          <div class="form-for-booking">
+            <%= simple_form_for(@event) do |f| %>
+              <%= f.error_notification %>
+                <%= f.input :place, :label => "Tickets amount", collection: (1..20), prompt: "Select quantity" %>
+                <div class="booking-total-price">
+                  <p>Total price : <%= @event.price %>,00 €</p>
+                </div>
+                <%= f.submit 'Add to your basket list' %>
+            <% end %>
+          </div>
+        </div>
       </div>
       <div class="booking-img">
+        Picture/banner
       </div>
     </div>
     <div class="booking-info">
-    <p>More information about the event</p>
+      <p>More information about the event</p>
+    </div>
+    <div class="google-map">
+      <p>Here google MAP</p>
+    </div>
+    <div class="booking-picture">
+      <p>More pictures about the event</p>
     </div>
   </div>
+  <div class="booking-basket">
+    <div class="basket-list">
+      <p>Your Basket list</p>
+    </div>
+    <div class="basket-price">
+      <p>Price/unit: <%= @event.price %>,00 € </p>
+      <p>Total price: € </p>
+    </div>
+    <div class="btn btn-default">Checkout</div>
+  </div>
+</div>

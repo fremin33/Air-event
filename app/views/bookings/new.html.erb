@@ -30,13 +30,14 @@
         </div>
         <div class="booking-inputs">
           <div class="form-for-booking">
-            <%= simple_form_for(@event) do |f| %>
+            <%= simple_form_for([@event, @booking]) do |f| %>
               <%= f.error_notification %>
-                <%= f.input :place, :label => "Tickets amount", collection: (1..20), prompt: "Select quantity" %>
+                <%= f.input :place, :label => "Tickets amount" %>
                 <div class="booking-total-price">
                   <p>Total price : <%= @event.price %>,00 €</p>
                 </div>
-                <%= f.submit 'Book', class: "btn btn-primary"%>
+                <%= f.submit 'Book', class: "btn btn-danger"%>
+                <%= link_to 'Back to events', events_path, class: "btn btn-primary" %>
             <% end %>
           </div>
         </div>

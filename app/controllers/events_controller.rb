@@ -1,13 +1,13 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :new]
+  skip_before_action :authenticate_user!, only: [:index, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @city = params[:search][:localisation]
     @events = Event.all
-
     if params[:search]
       if not params[:search][:localisation].blank?
-        @events = @events.near(params[:search][:localisation], 250)
+        @events = @events.near(@city, 5000)
       end
       if not params[:search][:category_id].blank?
         @events = @events.where(category_id: params[:search][:category_id])
@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
+
   def new
     @event = Event.new
   end
@@ -54,6 +55,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :price, :date, :place, :description, :picture, :category_id, :address, :zip_code, :city, :country)
+    params.require(:event).permit(:name, :price, :date, :place, :description, :picture, :category_id, :address)
   end
 end

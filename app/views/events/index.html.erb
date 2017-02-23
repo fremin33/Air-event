@@ -1,24 +1,29 @@
- <!--Page title -->
- <div class="header-page">
-    <h1>Result for your search</h1>
-  </div>
-
-  <div class="container">
-    <!--Display each event in a card -->
-    <% @events.each do |event| %>
+<!--Page title -->
+<div class="header-page text-center">
+  <% if @city.blank? && params[:search][:category_id].blank?%>
+    <h1>Voici tous les events disponible dans le monde </h1>
+  <% elsif @city.blank?  %>
+    <h1>Voici tous les events disponible dans la catégorie <%= @events.first.category.name %> </h1>
+  <% else %>
+    <h1>Voici tous les events disponible dans la catégorie <%= @events.first.category.name %> proche de <%= @city %> </h1>
+  <% end %>
+</div>
+<div class="container">
+  <!--Display each event in a card -->
+  <% @events.each do |event| %>
     <div class="card">
-
       <!-- Event header -->
       <div class="card-header">
         <div class="card-title">
           <h3><%= event.name %> - Category: <%= event.category.name %></h3>
-          <p><%= event.full_street_address %></p>
         </div>
       </div>
-
       <!-- Event content -->
       <div class= "card-content">
         <div class="card-img">
+          <% if event.picture? %>
+            <%= cl_image_tag event.picture.path, width: 280, height: 310, crop: :fill %>
+          <% end %>
         </div>
         <div class="card-spec">
           <div class="card-date">
@@ -32,12 +37,11 @@
           </div>
           <div class="card-description">
             <p>About: <%= event.description %></p>
+            <p><%= event.full_street_address %></p>
+            <p><%= link_to 'Book', new_event_booking_path(event.id), class: "btn btn-primary btn-center" %></p>
           </div>
-        </div>
-        <div class="card-button">
-          <%= link_to 'Book', new_event_booking_path(event.id), class: "btn btn-primary btn-center" %>
         </div>
       </div>
     </div>
-    <% end %>
-  </div>
+  <% end %>
+</div>

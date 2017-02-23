@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  var localisation_address = $('#localisation_address').get(0);
+  var event_address = $('#event_address').get(0);
 
-  if (localisation_address) {
-    var autocomplete = new google.maps.places.Autocomplete(localisation_address, { types: ['geocode'] });
+  if (event_address) {
+    var autocomplete = new google.maps.places.Autocomplete(event_address, { types: ['geocode'] });
     google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-    google.maps.event.addDomListener(localisation_address, 'keydown', function(e) {
+    google.maps.event.addDomListener(event_address, 'keydown', function(e) {
       if (e.keyCode == 13) {
         e.preventDefault(); // Do not submit the form on Enter.
       }
@@ -12,15 +12,30 @@ $(document).ready(function() {
   }
 });
 
+$(document).ready(function() {
+  var event_address = $('#event_address').get(0);
+
+  if (event_address) {
+    var autocomplete = new google.maps.places.Autocomplete(event_address, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    google.maps.event.addDomListener(event_address, 'keydown', function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault(); // Do not submit the form on Enter.
+      }
+    });
+  }
+});
+
+
 function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
 
-  $('#localisation_address').trigger('blur').val(components.address);
-  $('#localisation_zip_code').val(components.zip_code);
-  $('#localisation_city').val(components.city);
+  $('#event_address').trigger('blur').val(components.address);
+  $('#event_zip_code').val(components.zip_code);
+  $('#event_city').val(components.city);
   if (components.country_code) {
-    $('#localisation_country').val(components.country_code);
+    $('#event_country').val(components.country_code);
   }
 }
 
@@ -59,3 +74,11 @@ function getAddressComponents(place) {
     country_code: country_code
   };
 }
+
+// Fonction pour la search-bar
+function initialize() {
+
+var input = document.getElementById('localisation');
+var autocomplete = new google.maps.places.Autocomplete(input);
+}
+google.maps.event.addDomListener(window, 'load', initialize);

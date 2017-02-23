@@ -1,40 +1,40 @@
- <!--Page title -->
- <div class="header-page">
-    <h1>Result for your search</h1>
-  </div>
-
-  <div class="container">
-    <!--Display each event in a card -->
-    <div class="card">
-
-      <!-- Event header -->
-      <div class="card-header">
-        <div class="card-title">
-          <h3><%= @event.name %> - Category: <%= @event.category.name %></h3>
-        </div>
+<!--Page title -->
+<div class="header-page">
+  <h1>Result for your search</h1>
+</div>
+<div class="container">
+  <!--Display each event in a card -->
+  <div class="card">
+    <!-- Event header -->
+    <div class="card-header">
+      <div class="card-title">
+        <h3><%= @event.name %> - Category: <%= @event.category.name %></h3>
       </div>
-
-      <!-- Event content -->
-      <div class= "card-content">
-        <div class="card-img">
+    </div>
+    <!-- Event content -->
+    <div class= "card-content">
+      <div class="card-img">
+        <% if event.picture? %>
+          <%= cl_image_tag @event.picture.path, width: 280, height: 310, crop: :fill %>
+        <% end %>
+      </div>
+      <div class="card-spec">
+        <div class="card-date">
+          <p>Date: <%= @event.date %></p>
         </div>
-        <div class="card-spec">
-          <div class="card-date">
-            <p>Date: <%= @event.date %></p>
-          </div>
-          <div class="card-price">
-            <p>Price: <%= @event.price %> €</p>
-          </div>
-          <div class="card-place">
-            <p>Entries available: <%= @event.place %></p>
-          </div>
-          <div class="card-description">
-            <p>About: <%= @event.description %></p>
-          </div>
-          <div class="card-address">
-            <p>Address: <%= @event.full_street_address %></p>
-          </div>
+        <div class="card-price">
+          <p>Price: <%= @event.price %> €</p>
+        </div>
+        <div class="card-place">
+          <p>Entries available: <%= @event.place %></p>
+        </div>
+        <div class="card-description">
+          <p>About: <%= @event.description %></p>
+        </div>
+        <div class="card-address">
+          <p>Address: <%= @event.full_street_address %></p>
         </div>
       </div>
     </div>
   </div>
+</div>

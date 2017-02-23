@@ -1,7 +1,7 @@
 <%= simple_form_for :search, url: events_path, method: :get, html: { class: "form-inline"} do |f| %>
-  <%= f.input :localisation, label: false, input_html: {id: "localisation"} %>
+  <%= f.input :localisation, label: false, input_html: {id: "localisation", style: 'width:450px;'} %>
   <%= f.input :category_id, collection: Category.all, label: false, prompt: "All categories" %>
-  <%= f.submit 'search' %>
+  <%= f.submit 'search', class: 'btn btn-primary'%>
 <% end %>
 
 <%= content_for(:after_js) do %>

@@ -1,26 +1,24 @@
 .card {
-  border: 1px solid black;
-  margin: 5px 100px;
+  margin: 10px 100px;
+  box-shadow: 2px 2px 8px grey;
 }
 
 .card-content {
-  border: 1px solid black;
   margin: 10px 10px;
   display: flex;
 }
 
 .card-header {
-  border: 1px solid black;
   margin-top: 10px;
   margin: 10px;
 }
 
 .card-header h3 {
   margin: 5px;
+  padding-top: 10px;
 }
 
 .card-spec {
-  border: 1px solid black;
   margin: 5px 5px;
   position: relative;
   width: 90%;
@@ -28,7 +26,6 @@
 
 .card-img {
   width: 150px;
-  border: 1px solid black;
   margin: 5px 5px;
   position: relative;
 }

@@ -11,13 +11,12 @@
       <%= link_to t(".top_call_to_action", default: "Create an Event"), new_event_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
+      <% if user_signed_in? %>
 
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+
         </div>
       <% end %>
 
@@ -28,7 +27,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".booking", default: "Booking") %>
               <% end %>
             </li>
             <li>

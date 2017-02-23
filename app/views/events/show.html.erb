@@ -14,7 +14,7 @@
     <!-- Event content -->
     <div class= "card-content">
       <div class="card-img">
-        <% if event.picture? %>
+        <% if @event.picture? %>
           <%= cl_image_tag @event.picture.path, width: 280, height: 310, crop: :fill %>
         <% end %>
       </div>

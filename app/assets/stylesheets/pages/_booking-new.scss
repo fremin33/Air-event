@@ -1,7 +1,5 @@
 .booking-box {
-  margin: 50px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: 50px auto;
   box-shadow: 2px 2px 8px grey;
 }
 
@@ -56,4 +54,10 @@
 .booking-picture {
   border: 1px solid black;
   margin: 10px;
+}
+
+.footer-card p {
+  text-align: right;
+  padding: 5px 10px;
+
 }

@@ -1,6 +1,37 @@
 <h1>My bookings</h1>
-<% @bookings.each do |booking| %>
-<ul>
-  <li><%= booking.event.name %></li>
-</ul>
- <% end %>
+
+<div class="container">
+  <!--Display each event in a card -->
+  <% @bookings.each do |booking| %>
+    <div class="card">
+      <!-- Event header -->
+      <div class="card-header">
+        <div class="card-title">
+          <h3><%= booking.event.name %> - Category: <%= booking.event.category.name %></h3>
+        </div>
+      </div>
+      <!-- Event content -->
+      <div class= "card-content">
+        <div class="card-spec">
+          <div class="card-date">
+            <p>Date: <%= booking.event.date %></p>
+          </div>
+          <div class="card-description">
+            <p>About: <%= booking.event.description %></p>
+            <p><%= booking.event.full_street_address %></p>
+          </div>
+        </div>
+        <div class="card-price">
+          <p>Price: <%= booking.event.price %>,00 €</p>
+        </div>
+      </div>
+      <div class="footer-card">
+        <p><%= link_to 'Cancel booking', class: "btn btn-primary btn-center" %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center padded">
+  <%= link_to 'Back', root_path, class: "btn btn-primary text-center" %>
+</div>

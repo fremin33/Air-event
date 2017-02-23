@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
       marker.lat event.latitude
       marker.lng event.longitude
     end
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    session[:url] = request.original_url
   end
 
   def create

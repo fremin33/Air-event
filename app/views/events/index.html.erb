@@ -15,7 +15,7 @@
       <!-- Event header -->
       <div class="card-header">
         <div class="card-title">
-          <h3><%= event.name %> - Category: <%= event.category.name %></h3>
+          <h3><strong><%= event.name %></strong> - Category: <%= event.category.name %></h3>
         </div>
       </div>
       <!-- Event content -->
@@ -27,18 +27,18 @@
         </div>
         <div class="card-spec">
           <div class="card-date">
-            <p>Date: <%= event.date %></p>
+            <p><strong>Date:</strong> <%= event.date %></p>
           </div>
           <div class="card-place">
-            <p>Entries available: <%= event.place %></p>
+            <p><strong>Entries available:</strong> <%= event.place %></p>
           </div>
           <div class="card-description">
-            <p>About: <%= event.description %></p>
+            <p><strong>About:</strong> <%= event.description %></p>
             <p><%= event.full_street_address %></p>
           </div>
           </div>
           <div class="card-price">
-            <p>Price: <%= event.price %> €</p>
+            <p><strong>Price:</strong> <%= event.price %> €</p>
           </div>
           <div class="button-see-details">
             <p><%= link_to 'See details', new_event_booking_path(event.id), class: "btn btn-primary btn-center" %></p>

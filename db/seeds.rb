@@ -19,20 +19,24 @@ end
 end
 
 10.times do
-  e = Event.new(
-    name: Faker::Superhero.descriptor,
-    price: rand(1..20),
-    place: rand(1..20),
-    date: Faker::Date.between(2.days.ago, Date.today),
-    description: Faker::Lorem.paragraph,
-    user_id: User.all.sample.id,
-    category: Category.all.sample,
-    zip_code: Faker::Address.zip_code,
-    country: "France"
-  )
-  e.picture_url = "http://lorempixel.com/280/310/"
-  e.geocode
-  e.save
+  begin
+    e = Event.new(
+      name: Faker::Superhero.descriptor,
+      price: rand(1..20),
+      place: rand(1..20),
+      date: Faker::Date.between(2.days.ago, Date.today),
+      description: Faker::Lorem.paragraph,
+      user_id: User.all.sample.id,
+      category: Category.all.sample,
+      zip_code: Faker::Address.zip_code,
+      country: "France",
+      infos: Faker::Lorem.paragraphs
+    )
+    e.picture_url = "http://lorempixel.com/280/310/"
+    e.geocode
+    e.save
+  rescue
+  end
 end
 
 20.times do
@@ -40,5 +44,5 @@ end
     user_id: User.all.sample.id,
     event_id: Event.all.sample.id,
     place: rand(1..3)
-  )
+  ).save
 end

@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
     @user = current_user
     if !current_user.nil?
       @bookings = Booking.where(user: @user)
+      @booking_count = Booking.where(user: @user).count
     end
   end
 

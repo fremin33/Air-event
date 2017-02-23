@@ -12,6 +12,13 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @event = Event.find(params[:event_id])
+    @event_coordinates = { lat: @event.latitude, lng: @event.longitude }
+    @hash = Gmaps4rails.build_markers([@event]) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+    end
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
   end
 
   def create

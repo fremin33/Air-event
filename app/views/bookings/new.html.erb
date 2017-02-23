@@ -5,18 +5,15 @@
 <div class="big-box">
   <div class= "booking-box">
     <div class="booking-box-items">
-      <div class="booking-user-spec">
-        <div class="booking-avatar">
-          <p>Image User creator</p>
-        </div>
-        <div class="bookings-reviews">
-          <p>Reviews for User creator</p>
-        </div>
+      <div class="booking-img">
+        <% if @event.picture? %>
+          <%= cl_image_tag @event.picture.path, width: 200, height: 300, crop: :fill %>
+        <% end %>
       </div>
       <div class="booking-form">
         <div class="booking-infos">
           <div class="booking-category">
-            <p>Type: <%= @event.category %></p>
+            <p>Type: <%= @event.category.name %></p>
           </div>
           <div class="booking-date">
             <p> Date: <%= @event.date %></p>
@@ -39,13 +36,10 @@
                 <div class="booking-total-price">
                   <p>Total price : <%= @event.price %>,00 €</p>
                 </div>
-                <%= f.submit 'Add to your basket list' %>
+                <%= f.submit 'Book', class: "btn btn-primary"%>
             <% end %>
           </div>
         </div>
-      </div>
-      <div class="booking-img">
-        Picture/banner
       </div>
     </div>
     <div class="booking-info">
@@ -57,15 +51,5 @@
     <div class="booking-picture">
       <p>More pictures about the event</p>
     </div>
-  </div>
-  <div class="booking-basket">
-    <div class="basket-list">
-      <p>Your Basket list</p>
-    </div>
-    <div class="basket-price">
-      <p>Price/unit: <%= @event.price %>,00 € </p>
-      <p>Total price: € </p>
-    </div>
-    <div class="btn btn-default">Checkout</div>
   </div>
 </div>

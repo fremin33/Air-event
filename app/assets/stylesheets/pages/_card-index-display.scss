@@ -1,6 +1,6 @@
 .card {
   border: 1px solid black;
-  margin: 50px 200px;
+  margin: 5px 100px;
 }
 
 .card-content {
@@ -23,12 +23,11 @@
   border: 1px solid black;
   margin: 5px 5px;
   position: relative;
-  padding: 15px 15px;
   width: 90%;
 }
 
 .card-img {
-  width: 450px;
+  width: 150px;
   border: 1px solid black;
   margin: 5px 5px;
   position: relative;
@@ -47,4 +46,22 @@
   position: relative;
   margin: 0 auto;
   top: 40%;
+}
+
+.card-price {
+  margin: 5px 5px;
+}
+
+.card-price p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+.button-see-details p {
+  margin: 5px 5px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
 }

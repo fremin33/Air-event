@@ -22,15 +22,12 @@
       <div class= "card-content">
         <div class="card-img">
           <% if event.picture? %>
-            <%= cl_image_tag event.picture.path, width: 280, height: 310, crop: :fill %>
+            <%= cl_image_tag event.picture.path, width: 150, height: 150, crop: :fill %>
           <% end %>
         </div>
         <div class="card-spec">
           <div class="card-date">
             <p>Date: <%= event.date %></p>
-          </div>
-          <div class="card-price">
-            <p>Price: <%= event.price %> €</p>
           </div>
           <div class="card-place">
             <p>Entries available: <%= event.place %></p>
@@ -38,8 +35,13 @@
           <div class="card-description">
             <p>About: <%= event.description %></p>
             <p><%= event.full_street_address %></p>
-            <p><%= link_to 'Book', new_event_booking_path(event.id), class: "btn btn-primary btn-center" %></p>
           </div>
+          </div>
+          <div class="card-price">
+            <p>Price: <%= event.price %> €</p>
+          </div>
+          <div class="button-see-details">
+            <p><%= link_to 'See details', new_event_booking_path(event.id), class: "btn btn-primary btn-center" %></p>
         </div>
       </div>
     </div>

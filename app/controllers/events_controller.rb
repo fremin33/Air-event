@@ -28,6 +28,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.save
       redirect_to @event
+      flash[:notice] = "Your event has been created!"
     else
       render :new
     end

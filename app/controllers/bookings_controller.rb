@@ -30,7 +30,16 @@ class BookingsController < ApplicationController
       @booking.user = current_user
       @booking.save
       redirect_to bookings_path
+      flash[:notice] = "Booking saved in your account!"
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path(@booking.event)
+    flash[:notice] = "Booking canceled!"
+
   end
 
   private

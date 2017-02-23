@@ -5,7 +5,7 @@
   <% elsif @city.blank?  %>
     <h1>Voici tous les events disponible dans la catégorie <%= @events.first.category.name %> ( <%= @events.count %> ) </h1>
   <% else %>
-    <h1>Voici tous les events disponible proche de <%= @city %> ( <%= @events.count %> )</h1>
+    <h1>Voici tous les events disponible proche de <%= @city %></h1>
   <% end %>
 </div>
 <div class="container">

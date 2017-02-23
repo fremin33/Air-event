@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="footer-card">
-        <p><%= link_to 'Cancel booking', class: "btn btn-primary btn-center" %></p>
+        <p><%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: "Are you sure ?"} %></p>
       </div>
     </div>
   <% end %>

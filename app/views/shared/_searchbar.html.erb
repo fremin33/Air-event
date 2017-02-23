@@ -1,9 +1,16 @@
 <%= simple_form_for :search, url: events_path, method: :get, html: { class: "form-inline"} do |f| %>
-  <%= f.input :localisation, label: false, input_html: {id: "localisation"} %>
+  <%= f.input :localisation, label: false, input_html: {id: "localisation", style: 'width:450px;'} %>
   <%= f.input :category_id, collection: Category.all, label: false, prompt: "All categories" %>
-  <%= f.submit 'search' %>
+  <%= f.submit 'search', class: 'btn btn-primary'%>
 <% end %>
 
 <%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
+<script>// Fonction pour la search-bar
+function initialize() {
+
+var input = document.getElementById('localisation');
+var autocomplete = new google.maps.places.Autocomplete(input);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 <% end %>

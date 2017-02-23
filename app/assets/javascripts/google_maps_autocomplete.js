@@ -74,11 +74,3 @@ function getAddressComponents(place) {
     country_code: country_code
   };
 }
-
-// Fonction pour la search-bar
-function initialize() {
-
-var input = document.getElementById('localisation');
-var autocomplete = new google.maps.places.Autocomplete(input);
-}
-google.maps.event.addDomListener(window, 'load', initialize);

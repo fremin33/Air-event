@@ -34,3 +34,11 @@ end
   e.geocode
   e.save
 end
+
+20.times do
+  Booking.new(
+    user_id: User.all.sample.id,
+    event_id: Event.all.sample.id,
+    place: rand(1..3)
+  )
+end

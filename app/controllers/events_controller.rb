@@ -27,6 +27,8 @@ class EventsController < ApplicationController
     @categories = Category.all
     @event = Event.new(event_params)
     @event.geocode
+    @event.user_id = current_user
+    @event.date = Faker::Date.between(2.days.ago, Date.today)
     if @event.save
       redirect_to @event
       flash[:notice] = "Your event has been created!"

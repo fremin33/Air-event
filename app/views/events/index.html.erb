@@ -1,11 +1,11 @@
 <!--Page title -->
 <div class="header-page text-center">
   <% if @city.blank? && params[:search][:category_id].blank?%>
-    <h1>Voici tous les events disponible dans le monde <p style="size: 13px">( <%= @events.count %> found )<p> </h1>
+    <h1>Check out the events we found ! <p style="font-size: 13px";>( <%= @events.count %> found )</p></h1>
   <% elsif @city.blank?  %>
-    <h1>Voici tous les events disponible dans la catégorie <%= @events.first.category.name %> ( <%= @events.count %> ) </h1>
+    <h1>Check out the events we found in <%= @events.first.category.name %><p style="font-size: 13px";> ( <%= @events.count %> found )</p></h1>
   <% else %>
-    <h1>Voici tous les events disponible proche de <%= @city %></h1>
+    <h1>Check out the events we found close to <%= @city %></h1>
   <% end %>
 </div>
 <div class="container">

@@ -15,7 +15,7 @@
         <div class= "card-content">
           <div class="card-spec">
             <div class="card-date">
-              <p>Date: <%= booking.event.date %></p>
+              <p><%= booking.event.date.strftime(" Starts on %B %d at %I:%M %p") %></p>
             </div>
             <div class="card-description">
               <p>About: <%= booking.event.description %></p>

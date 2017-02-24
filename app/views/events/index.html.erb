@@ -27,7 +27,7 @@
         </div>
         <div class="card-spec">
           <div class="card-date">
-            <p><strong>Date:</strong> <%= event.date %></p>
+            <p><strong>Date:</strong> <%= event.date.strftime(" Starts on %B %d at %I:%M %p") %></p>
           </div>
           <div class="card-place">
             <p><strong>Entries available:</strong> <%= event.place %></p>

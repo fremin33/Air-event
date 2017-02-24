@@ -15,7 +15,7 @@
               <p><strong>Type:</strong> <%= @event.category.name %></p>
             </div>
             <div class="booking-date">
-              <p><strong> Date:</strong> <%= @event.date %></p>
+              <p><strong> Date:</strong> <%= @event.date.strftime(" Starts on %B %d at %I:%M %p") %></p>
             </div>
             <div class="bokking-description">
               <p><strong>About:</strong> <%= @event.description %></p>

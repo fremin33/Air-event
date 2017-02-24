@@ -1,26 +1,53 @@
-<div class="container">
-  <div clas="row">
-    <%= simple_form_for(@event) do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-        <%= f.input :name, label: "Entrez le nom de votre event" %>
-        <%= f.input :price %>
-        <%= f.input :date %>
-        <%= f.input :place %>
-        <%= f.input :category_id, collection: Category.all  %>
-        <%= f.input :description %>
-        <%= f.input :picture, as: :attachinary %>
-        <%= f.input :address %>
-        <%= f.input :zip_code %>
-        <%= f.input :city %>
-        <%= f.input :country %>
-        <%= f.submit %>
+<div class="container" style="">
+  <%= simple_form_for(@event) do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <h1 style="padding-top: 0px;"> New event <br/> <small> Please give the next informations </small></h1>
       </div>
-    <% end %>
-  </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-3">
+        <%= f.input :name, label: "Enter the name of your event", placeholder: "Soirée foot" %>
+      </div>
+      <div class="col-md-offset-1 col-md-3">
+        <%= f.input :category_id, label: "Select your category",  collection: Category.all%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-7">
+        <%= f.input :address, label: "Enter the full address of your event", placeholder: "1 la carre, 33710 Saint Seurin de bourg" %>
+      </div>
+    </div>
+    <div class="row row-new">
+      <div class="col-md-4">
+        <%= f.input :price, label: "Price to to take part in", placeholder: "10 €" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :place, label: "How many Guests ?", placeholder: "5 Guests"  %>
+      </div>
+      <div class="col-md-4">
+        <input  type="datetime-local" value="2011-08-19T13:45:00" label="holala">
+      </div>
+    </div>
+      <div class="row text-center">
+        <div class="form-group">
+          <%= f.input :picture, as: :attachinary, class: "text-center"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-7">
+        <div class="form-group">
+          <%= f.input :description, label: "Describe your event" %>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-md-offset-5 col-md-1">
+           <%= f.submit class: "btn btn-primary"%>
+      </div>
+    </div>
+  <% end %>
 </div>
 
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU">
-  </script>
-<% end %>

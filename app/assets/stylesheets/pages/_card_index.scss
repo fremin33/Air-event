@@ -22,6 +22,7 @@
   margin: 5px 5px;
   position: relative;
   width: 90%;
+  margin-left: 15px;
 }
 
 .card-img {
@@ -62,4 +63,11 @@
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
+}
+
+.card-img img {
+  width: 150px;
+  margin: 5px 5px;
+  position: relative;
+  border-radius: 3px;
 }

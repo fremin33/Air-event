@@ -19,26 +19,28 @@
         <%= f.input :address, label: "Enter the full address of your event", placeholder: "1 la carre, 33710 Saint Seurin de bourg" %>
       </div>
     </div>
-    <div class="row row-new">
-      <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-2">
         <%= f.input :price, label: "Price to to take part in", placeholder: "10 €" %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <%= f.input :place, label: "How many Guests ?", placeholder: "5 Guests"  %>
       </div>
-      <div class="col-md-4">
-        <input  type="datetime-local" value="2011-08-19T13:45:00" label="holala">
+      <div class="col-md-3">
+        <%= f.input :date, label: "Date of your event", as: :string, input_html: { class: "datetimepicker "} %>
       </div>
     </div>
-      <div class="row text-center">
-        <div class="form-group">
-          <%= f.input :picture, as: :attachinary, class: "text-center"%>
-      </div>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-3">
+          <div class="form-group text-center">
+            <%= f.input :picture, as: :attachinary, label: "Upload event's picture"%>
+          </div>
+        </div>
     </div>
     <div class="row">
       <div class="col-md-offset-2 col-md-7">
         <div class="form-group">
-          <%= f.input :description, label: "Describe your event" %>
+          <%= f.input :description, label: "Describe your event", as: :text %>
         </div>
       </div>
     </div>
@@ -50,4 +52,3 @@
     </div>
   <% end %>
 </div>
-

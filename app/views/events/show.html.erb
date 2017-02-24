@@ -20,10 +20,10 @@
       </div>
       <div class="card-spec">
         <div class="card-date">
-          <p>Date: <%= @event.date %></p>
+          <p>Date: <%= @event.dat.strftime(" Starts on %B %d at %I:%M %p")e %></p>
         </div>
         <div class="card-price">
-          <p>Price: <%= @event.price %> €</p>
+          <p>Price: <%= @event.price %>,00 €</p>
         </div>
         <div class="card-place">
           <p>Entries available: <%= @event.place %></p>
@@ -33,6 +33,9 @@
         </div>
         <div class="card-address">
           <p>Address: <%= @event.address %></p>
+        </div>
+        <div class="card-infos">
+          <p>Address: <%= @event.infos %></p>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ end
   begin
     e = Event.new(
       name: Faker::Superhero.descriptor,
-      price: rand(1..20),
+      price: rand(12..30),
       place: rand(100..500),
       date: Faker::Date.between(2.days.ago, Date.today),
       description: Faker::Lorem.paragraph,

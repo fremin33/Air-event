@@ -1,4 +1,4 @@
-<h1>My bookings ( <%= @booking_count %> )</h1>
+<h1>My bookings <p style="font-size:18px";>( <%= @booking_count %> in list )</p></h1>
 
 <div class="container">
   <!--Display each event in a card -->
@@ -20,18 +20,20 @@
             <p>About: <%= booking.event.description %></p>
             <p><%= booking.event.full_street_address %></p>
           </div>
-        </div>
         <div class="card-price">
           <p>Price: <%= booking.event.price %>,00 €</p>
         </div>
+        <div class="card-quantity text-center">
+          <p>Quantity: <%= booking.place %> unit(s)</p>
+        </div>
+        </div>
       </div>
       <div class="footer-card">
-        <p><%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: "Are you sure ?"} %></p>
+        <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+        <%= link_to 'Cancel booking', booking_path(booking), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure ?"} %>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="text-center padded">
-  <%= link_to 'Back', root_path, class: "btn btn-primary text-center" %>
-</div>
+

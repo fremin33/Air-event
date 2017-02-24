@@ -28,8 +28,7 @@ end
       description: Faker::Lorem.paragraph,
       user_id: User.all.sample.id,
       category: Category.all.sample,
-      zip_code: Faker::Address.zip_code,
-      country: "France",
+      address: Faker::Address.city,
       infos: Faker::Lorem.paragraphs
     )
     e.picture_url = "http://lorempixel.com/280/310/"

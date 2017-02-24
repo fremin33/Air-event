@@ -1,1 +1,27 @@
 // Your footer style
+.footer p {
+  margin-top: 16px;
+}
+
+a.footer {
+  margin-top: 10px;
+}
+
+
+.footer a {
+  margin-top: 10px;
+  margin: 0 10px;
+  color: grey;
+}
+
+.r-sociaux {
+  display: flex;
+  margin-top: 20px;
+}
+
+
+a:hover {
+  text-decoration: none;
+  color: black;
+  transition: 1s;
+}

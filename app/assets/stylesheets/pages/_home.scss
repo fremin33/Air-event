@@ -11,12 +11,21 @@
   justify-content: center;
 }
 
+.banner-content{
+  padding: 10px 20px;
+  position: absolute;
+  top: 250px;
+  left: 0;
+  right: 0;
+}
+
 .banner h1{
-  color: white;
+  padding: 10px 20px;
+  color: white
 }
 
 .banner h2 {
-  color: #e2e273;
+  color: #e2e273
 }
 
 body {
@@ -55,8 +64,7 @@ h2 {
   display: flex;
   padding: 30px 20px;
   color: black;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .footer img {

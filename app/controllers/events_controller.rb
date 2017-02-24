@@ -26,6 +26,7 @@ class EventsController < ApplicationController
   def create
     @categories = Category.all
     @event = Event.new(event_params)
+    @event.geocode
     if @event.save
       redirect_to @event
       flash[:notice] = "Your event has been created!"

@@ -21,9 +21,9 @@
               <p><strong>About:</strong> <%= @event.description %></p>
             </div>
             <div class="booking-tickets">
-              <p><strong>Tickets available:</strong> <%= @event.place %> tickets</p>
+              <p><strong>Tickets available:</strong><span><%= @event.place %></span> tickets</p>
             </div>
-            <div class="booking-price">
+            <div class="booking-price" id="booking-price" data-price="<%= @event.price %>">
               <p><strong>Price/unit:</strong> <%= @event.price %>,00 €</p>
             </div>
           </div>
@@ -33,7 +33,7 @@
                 <%= f.error_notification %>
                   <%= f.input :place, :label => "Tickets amount", input_html: { min: 1 } %>
                   <div class="booking-total-price">
-                    <h4>Total price : <%= @event.price %>,00 €</h4>
+                    <h4>Total price : <span><%= @event.price %></span>,00 €</h4>
                   </div>
                   <%= f.submit 'Book', class: "btn btn-danger"%>
                   <%= link_to 'Back to events', events_path, class: "btn btn-primary" %>

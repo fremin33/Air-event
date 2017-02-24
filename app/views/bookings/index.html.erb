@@ -1,39 +1,45 @@
 <h1>My bookings <p style="font-size:18px";>( <%= @booking_count %> in list )</p></h1>
 
 <div class="container">
-  <!--Display each event in a card -->
-  <% @bookings.each do |booking| %>
-    <div class="card">
-      <!-- Event header -->
-      <div class="card-header">
-        <div class="card-title">
-          <h3><%= booking.event.name %> - Category: <%= booking.event.category.name %></h3>
+    <!--Display each event in a card -->
+    <% @bookings.each do |booking| %>
+  <div class="container-my-booking">
+      <div class="card-booking">
+        <!-- Event header -->
+        <div class="card-header">
+          <div class="card-title">
+            <h3><%= booking.event.name %> - Category: <%= booking.event.category.name %></h3>
+          </div>
+        </div>
+        <!-- Event content -->
+        <div class= "card-content">
+          <div class="card-spec">
+            <div class="card-date">
+              <p>Date: <%= booking.event.date %></p>
+            </div>
+            <div class="card-description">
+              <p>About: <%= booking.event.description %></p>
+              <p><%= booking.event.address %></p>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- Event content -->
-      <div class= "card-content">
-        <div class="card-spec">
-          <div class="card-date">
-            <p>Date: <%= booking.event.date %></p>
+      <div class="card-basket">
+        <div class="card-basket-info">
+          <div class="card-price">
+            <p>Total price: <%= booking.event.price * booking.place %>,00 €</p>
           </div>
-          <div class="card-description">
-            <p>About: <%= booking.event.description %></p>
-            <p><%= booking.event.address %></p>
+          <div class="card-quantity text-center">
+            <p>Quantity: <%= booking.place %> unit(s)</p>
           </div>
-        <div class="card-price">
-          <p>Price: <%= booking.event.price %>,00 €</p>
         </div>
-        <div class="card-quantity text-center">
-          <p>Quantity: <%= booking.place %> unit(s)</p>
+        <div class="footer-card">
+          <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+          <%= link_to 'Cancel booking', booking_path(booking), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure ?"} %>
         </div>
-        </div>
-      </div>
-      <div class="footer-card">
-        <%= link_to 'Back', root_path, class: "btn btn-primary" %>
-        <%= link_to 'Cancel booking', booking_path(booking), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure ?"} %>
       </div>
     </div>
-  <% end %>
+ <% end %>
 </div>
 
 

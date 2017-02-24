@@ -11,14 +11,14 @@ User.destroy_all
     last_name: Faker::Name.last_name
   ).save!
 end
-
-10.times do
+categories = ['Sport', 'House Party','Concert', 'Video Game','Apéro', 'Pool Party' ,'Poker', 'Art']
+categories.each do |category|
   Category.new(
-    name: Faker::Pokemon.name
+    name: category
   ).save!
 end
 
-10.times do
+20.times do
   begin
     e = Event.new(
       name: Faker::Superhero.descriptor,
@@ -27,21 +27,13 @@ end
       date: Faker::Date.between(2.days.ago, Date.today),
       description: Faker::Lorem.paragraph,
       user_id: User.all.sample.id,
-      category: Category.all.sample,
+      category: Category.where("name = 'Apéro'").last,
       address: Faker::Address.city,
       infos: Faker::Lorem.paragraphs
     )
-    e.picture_url = "http://lorempixel.com/280/310/"
+    e.picture_url = "http://lorempixel.com/280/310/nightlife/"
     e.geocode
     e.save
   rescue
   end
-end
-
-20.times do
-  Booking.new(
-    user_id: User.all.sample.id,
-    event_id: Event.all.sample.id,
-    place: rand(1..3)
-  ).save
 end

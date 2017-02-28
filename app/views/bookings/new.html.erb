@@ -22,6 +22,7 @@
             </div>
             <div class="booking-tickets">
               <p><strong>Tickets available: </strong><span><%= @event.place %></span> tickets</p>
+              <input id="ticketsavailable" type="hidden" value=<%= @event.place %> >
             </div>
             <div class="booking-price" id="booking-price" data-price="<%= @event.price %>">
               <p><strong>Price/unit: </strong> <%= @event.price %>,00 €</p>
